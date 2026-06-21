@@ -1,0 +1,70 @@
+@import "/src/constants&mixins";
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+
+  span {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    padding: 0 0.25rem;
+    font-size: 0.8rem;
+    background: white;
+    transition: 0.2s ease all;
+    pointer-events: none;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+    border: 1px solid rgb(0 0 0 / 23%);
+    border-radius: 4px;
+
+    &:focus {
+      background: $white;
+      border-color: $primary-purple;
+      outline: none;
+    }
+
+    &:focus + span,
+    &:not(:placeholder-shown) + span {
+      top: -0.5rem;
+      left: 0.5rem;
+      color: rgb(0 0 0 / 60%);
+      font-size: 0.7rem;
+    }
+  }
+
+  .togglePasswordButton {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    color: rgb(0 0 0 / 56%);
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.inputContainer input:-webkit-autofill {
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: $primary-purple !important;
+}
+
+.formErr {
+  @include info-text;
+
+  position: absolute;
+  bottom: -1.2rem;
+  left: 1rem;
+  color: red;
+}

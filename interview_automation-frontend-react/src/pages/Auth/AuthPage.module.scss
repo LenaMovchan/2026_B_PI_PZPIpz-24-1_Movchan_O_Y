@@ -1,0 +1,112 @@
+@import "/src/constants&mixins";
+
+.authPageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+}
+
+.switchAuthContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+
+  .switchAuthLink {
+    text-decoration: none;
+  }
+
+  p {
+    @include info-text;
+  }
+}
+
+.signContainer {
+  width: 460px;
+  padding: 1.5rem 2rem;
+  border: 1px solid rgb(0 0 0 / 15%);
+  border-radius: 12px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      @include info-text;
+    }
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  img {
+    width: 41.375rem;
+    height: 37.75rem;
+  }
+}
+
+.formInputsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.25rem 0;
+}
+
+.formErr {
+  @include info-text;
+
+  min-height: 1.2rem;
+  padding-left: 1rem;
+}
+
+.submitButton {
+  margin: 0.75rem 0;
+
+  @include primary-button;
+}
+
+.additionalActionsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .link {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+.decorateLink {
+  color: $secondary-text;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.googleButtonContainer {
+  padding: 1rem 0;
+}
+
+.googleButton {
+  @include secondary-button;
+}

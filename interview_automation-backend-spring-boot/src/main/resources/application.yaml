@@ -1,0 +1,181 @@
+project:
+  version: @project.version@
+
+rest:
+  prefix: /rest
+
+h2:
+  enable-test-data: true
+
+domain:
+  back: ${VITE_BACK_URL:http://localhost:8080}
+  front: ${VITE_FRONT_URL:http://localhost:5175}
+
+spring:
+  application:
+    name: snapshot-spring-boot
+
+  datasource:
+    url: jdbc:h2:mem:interview
+    driverClassName: org.h2.Driver
+    username: username
+    password:
+
+#  datasource:
+#    password: postgres
+#    url: jdbc:postgresql://localhost:5432/interview
+#    username: postgres
+#    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+
+  h2:
+    console:
+      enabled: true
+#  flyway:
+#    enabled: true
+#    locations: classpath:db/migration
+#    baseline-on-migrate: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            redirect-uri: ${domain.back}/${rest.prefix}/oauth2/callback/google
+            scope:
+              - email
+              - profile
+
+  cache:
+    caffeine:
+      spec: expireAfterWrite=10h
+
+app:
+  oauth2:
+    authorized-redirect-uris: ${domain.front}/oauth2/redirect
+    cookie-expire-seconds: 180
+    authorization-base-uri: ${rest.prefix}/oauth2/authorize
+    redirection-base-uri: ${rest.prefix}/oauth2/callback/*
+
+  jwt:
+    secret: >-
+      f0eb866b7c14274600335f56c3a0a4ac18af2719128cbc7a186ad0a1b5525eed
+      ed8bba1e10e326cd7f8ec8a72ff0cb11199c82e6a09bd5966f14c28aadd5aaf1
+      070afe82e1e6b964191990efe42f7b3fff7af8c08f8f28fb6c57f5d679f0192a
+      473d8e402995e19da262957fb8b6331e3fb0e448b00f93865729b3dd728754bc
+      84161558856d68606c1dfc14504cc4b2406df314a721ffc911b801bf43a19b9b
+      fc1e4342079db2b2856c94081aa3633dc4efa033b03042a18c1aabbfbea4aae6
+      e6580fbb790d8e276520892afc7a7297536ac60f6daad3e2c78490f46836391d
+      49390a3eefc0b1d4006eee411f44ff322ca60276e91e52bfa31f437354e13590
+    expiration-time-in-minutes: 60
+    jwt-refresh-expiration-time-in-days: 1
+
+  gemini:
+    url: http://test-env.eba-5mnfjmjt.us-east-2.elasticbeanstalk.com/gemini
+
+  security:
+    permit-all-uris:
+      - ${rest.prefix}/users/hello
+      - ${rest.prefix}/users/all-candidates
+      - ${rest.prefix}/auth/**
+      - ${rest.prefix}/oauth2/**
+      - ${rest.prefix}/version
+    secured-uris:
+      - ${rest.prefix}/**
+
+cors:
+  allowed-headers: Authorization, Cache-Control, Content-Type, AcceptLanguage
+  allowed-origins: ${domain.front}
+  allowed-methods: GET, POST, PUT, PATCH, DELETE, OPTIONS
+  exposed-headers: Authorization
+
+back:
+  not-redirect-to-front:
+    start-with: >-
+      ${rest.prefix}, /assets, /h2-console, /actuator, /swagger-ui, /v3/api-docs,
+      /static, /manifest.json, /favicon.ico, /socket
+    ends-with: xml, json, jpg, svg, jpeg, gif, png
+
+registration:
+  emailTokenExpireTimeInMinutes: 30
+
+user:
+  create:
+    endpoint: ${domain.back}${rest.prefix}/auth/create-user
+    redirect: ${domain.front}/oauth2/redirect
+
+reminder:
+  email:
+    attempts: 3
+    retryDelayInMinutes: 1
+
+admin:
+  email: snapshot.it.project@gmail.com
+
+host: https://snapshot.k-points.in.ua/
+
+submit:
+  email:
+    subject: Підтвердження пошти для сервісу Interview IT
+    text: |-
+      <h2>Interview IT</h2>
+      <p>Перейдіть за наступним посиланням для підтвердження пошти:<p/>
+      <a href="%s"><h3>Підтвердити пошту<h3/></a>
+      <p>Посилання дійсне протягом %d хв.<p/>
+      <p>Якщо ви не відправляли запит на реестрацію, то просто проігноруйте це повідомлення!<p/>
+
+reset-password:
+  endpoint: ${domain.front}/edit-password
+  email:
+    subject: Відновлення паролю до сервісу Interview IT
+    text: |-
+      <h2>Interview IT</h2>
+      <p>Перейдіть за наступним посиланням для відновлення паролю:<p/>
+      <a href="%s"><h3>Відновити пароль<h3/></a>
+      <p>Посилання дійсне протягом %d хв.<p/>
+      <p>Якщо ви не відправляли запит на відновлення паролю, то просто проігноруйте це повідомлення!<p/>
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - shutdown
+          - prometheus
+  endpoint:
+    shutdown:
+      enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+
+logging:
+  file:
+    path: ./logs

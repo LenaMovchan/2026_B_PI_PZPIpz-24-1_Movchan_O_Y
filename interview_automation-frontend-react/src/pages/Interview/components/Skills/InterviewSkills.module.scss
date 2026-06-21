@@ -1,0 +1,49 @@
+@import "src/constants&mixins";
+
+.skillsContainer {
+  max-width: 42rem;
+  max-height: 10rem;
+
+  @include scroll-bar;
+
+  .skillsSubContainer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 0;
+    overflow-x: hidden;
+  }
+}
+
+.toggleButton {
+  position: absolute;
+  top: 0.75rem;
+  left: 39rem;
+  padding-right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  @include reset-button-styles;
+
+  .arrowUp,
+  .arrowDown {
+    display: inline-block;
+    width: 12px;
+    height: 8px;
+    background-image: url("/src/assets/arrow.svg");
+    border: none;
+    transition: transform 0.3s ease;
+  }
+
+  .arrowDown {
+    transform: rotate(0deg);
+  }
+
+  .arrowUp {
+    transform: rotate(-180deg);
+  }
+}

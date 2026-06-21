@@ -1,0 +1,14 @@
+@import "src/constants&mixins";
+
+.button {
+  max-width: 270px;
+  text-transform: uppercase;
+}
+
+.plannedButton {
+  @include primary-button;
+}
+
+.activeButton {
+  @include simple-button;
+}

@@ -1,0 +1,86 @@
+@import "src/constants&mixins";
+
+.skillInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 7rem;
+  padding: 0.75rem;
+  background: $light-purple;
+  border-radius: 0.625rem 0.625rem 0 0;
+
+  .skillInfoHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .textArea {
+    width: 100%;
+    height: 3rem;
+  }
+
+  .textContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 3rem;
+
+    .text {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .grade {
+      min-width: 10%;
+    }
+  }
+
+  .questionCount {
+    padding-right: 1.5rem;
+  }
+
+  .skillName {
+    padding: 0 0.75rem;
+    background: #f1e15b;
+    border-radius: 1.5rem;
+  }
+}
+
+.questionSelector {
+  display: flex;
+  align-items: center;
+
+  .numberList {
+    display: flex;
+    gap: 1rem;
+    padding-left: 1rem;
+
+    button {
+      padding: 0;
+
+      @include reset-button-styles;
+    }
+  }
+}
+
+.questionGradeContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 7rem;
+  padding: 2rem;
+  border: $small-border;
+
+  .sliderContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .questionGradeButton {
+    @include primary-button;
+
+    max-width: 8rem;
+    text-transform: uppercase;
+  }
+}

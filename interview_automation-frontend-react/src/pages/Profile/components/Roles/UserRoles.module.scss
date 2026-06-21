@@ -1,0 +1,44 @@
+@import "src/constants&mixins";
+
+.userProfileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  // background-color: #242424;
+  // background-color: beige;
+}
+
+.rolesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-weight: 500;
+  font-family: Roboto, sans-serif;
+
+  // border: 1px solid pink;
+}
+
+.selectedRoleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-self: start;
+  gap: 1rem;
+  font-weight: 500;
+  font-family: Roboto, sans-serif;
+}
+
+.main_role_settings_title {
+  width: 50.4rem;
+
+  // margin-bottom: 1.5srem;
+  padding: 0.5rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: Roboto, sans-serif;
+  line-height: 1.75rem;
+  border-bottom: 1px solid $dark-blue;
+}

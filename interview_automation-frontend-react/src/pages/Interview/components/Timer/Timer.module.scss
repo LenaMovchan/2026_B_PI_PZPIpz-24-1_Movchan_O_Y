@@ -1,0 +1,21 @@
+.stopwatch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 8px 10px;
+  color: black;
+  font-weight: 500;
+  background: #8de3db;
+  border-radius: 24px;
+
+  span {
+    display: block;
+    width: fit-content;
+    padding: 3px  8px;
+    color: black;
+    background: #ffffff;
+    border-radius: 15px;
+  }
+}

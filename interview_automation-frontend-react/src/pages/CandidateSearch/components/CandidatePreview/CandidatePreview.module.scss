@@ -1,0 +1,9 @@
+@import "src/constants&mixins";
+
+.candidatePreview {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border: $small-border;
+  border-radius: 10px;
+}

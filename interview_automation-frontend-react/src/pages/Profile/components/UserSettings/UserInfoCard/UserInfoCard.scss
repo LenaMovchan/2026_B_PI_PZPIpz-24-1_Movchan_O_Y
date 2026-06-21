@@ -1,0 +1,71 @@
+.drop_down_profile {
+  position: absolute;
+  top: 2.5rem;
+  right: -3.5rem;
+  z-index: 10;
+  display: none;
+  width: 12rem;
+  height: 10rem;
+  background-color: #ffffff;
+  border: 2px solid #8380b6;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.header_top_user:hover .drop_down_profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header_user_drpop_down_link {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  height: 2rem;
+  padding-block: 1rem;
+  color: #000000;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.drop_down_profile::before {
+  content: "";
+  position: absolute;
+  top: -0.35rem;
+  left: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-top: 2px solid #8380b6;
+  border-left: 2px solid #8380b6;
+  transform: rotate(45deg);
+}
+
+.header_user_drpop_down_exit {
+  padding-left: 0;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.menu_user_drpop_down_exit::before {
+  content: url("../../assets/icon-exit-second.svg");
+}
+
+.menu_change_password::before {
+  content: url("../../assets/icon-lock.svg");
+}
+
+.menu_notification::before {
+  content: url("../../assets/icon-bell.svg");
+}
+
+.menu_skills::before {
+  content: url("../../assets/icon-star.svg");
+}
+
+.menu_personData::before {
+  content: url("../../assets/icon-person.svg");
+}

@@ -1,0 +1,60 @@
+@import "/src/constants&mixins";
+
+.main_first_page {
+  position: relative;
+
+  // //kostyl
+  top: -5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  // margin-top: -5rem;
+
+  // margin-inline: auto;
+  padding-block: 3rem;
+}
+
+.main_first_page_container {
+  display: flex;
+  justify-content: center;
+}
+
+.main_first_page_image_container {
+  min-width: 35rem;
+}
+
+.main_first_page_action_container {
+  display: flex;
+  justify-content: center;
+}
+
+.main_first_page_action {
+  display: flex;
+  flex-basis: 22rem;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-self: center;
+  gap: 5rem;
+}
+
+.main_first_page_action_text {
+  font-weight: 400;
+  font-size: 2rem;
+  font-family: Roboto, sans-serif;
+  line-height: 3rem;
+}
+
+.main_first_page_action_button {
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: Roboto, sans-serif;
+  line-height: 1.75rem;
+}
+
+.submitButton {
+  display: block;
+  margin: 0.75rem 0;
+
+  @include primary-button;
+}

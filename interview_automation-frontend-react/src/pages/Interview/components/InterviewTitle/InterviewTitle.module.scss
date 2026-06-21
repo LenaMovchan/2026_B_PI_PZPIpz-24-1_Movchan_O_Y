@@ -1,0 +1,9 @@
+.titleInputContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  label {
+    min-width: 17.5rem;
+  }
+}

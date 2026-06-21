@@ -1,0 +1,115 @@
+.candidateSearchPage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Inter, sans-serif;
+
+  .pageHeader {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f5f9;
+
+    h2 {
+      margin: 0;
+      color: #1e293b;
+      font-weight: 700;
+      font-size: 1.75rem;
+    }
+  }
+}
+
+.candidateList {
+  display: flex;
+  flex-direction: column; // Картки йдуть вертикально одна за одною
+  gap: 16px; // Відступ між рядками
+}
+
+.candidateRow {
+  display: flex;
+  justify-content: space-between; // Картка зліва, кнопка справа
+  align-items: center; // Центрування по вертикалі (картка і кнопка на одній лінії)
+  padding: 16px 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
+  }
+}
+
+.previewWrapper {
+  flex: 1; // Займає основний простір
+}
+
+.viewProfileBtn {
+  margin-left: 20px;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap; // Текст кнопки не переноситься
+  background-color: #574997; // Ваш фірмовий колір
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+
+  &:hover {
+    background-color: #453a7a;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.loader,
+.emptyMessage {
+  padding: 40px;
+  color: #64748b;
+  font-style: italic;
+  text-align: center;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.sortBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #1e293b;
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+  }
+
+  svg {
+    transition: transform 0.3s;
+
+    // Якщо desc, можна перевернути іконку через CSS, якщо потрібно
+  }
+}

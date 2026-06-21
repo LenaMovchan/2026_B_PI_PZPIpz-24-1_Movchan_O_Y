@@ -1,0 +1,65 @@
+@import "/src/constants&mixins";
+
+.user-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18.125rem;
+  height: 22.438rem;
+  overflow: hidden;
+  background-color: white;
+  border: 3px solid $medium-purple;
+  border-radius: 20px;
+}
+
+.card-top {
+  width: 100%;
+  height: 33%;
+  background-image: url("../../../../assets/cardBackground.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+.card-content {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-picture {
+  position: absolute;
+  top: 0;
+  width: 9.438rem;
+  height: 9.625rem;
+  transform: translateY(-50%);
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.profile-name {
+  padding-top: 2rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.profile-button {
+  padding-bottom: 2rem;
+
+  button {
+    @include secondary-button;
+
+    padding: 0.625rem 1rem;
+    color: $medium-purple !important;
+    font-size: 1rem;
+    border-color: $medium-purple;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}

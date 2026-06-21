@@ -1,0 +1,238 @@
+@import "src/constants&mixins";
+
+.main_settings_container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.main_user_settings {
+  position: relative;
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  grid-template-areas:
+    "title title"
+    "photo name"
+    "photo username"
+    "location location";
+  grid-gap: 1.5rem 1rem;
+
+  // margin-bottom: 5rem;
+  padding: 1rem 1.5rem 2rem;
+  overflow: hidden;
+  border: 1px solid $medium-purple;
+  border-radius: 1.25rem;
+}
+
+.main_user_settings_title {
+  grid-area: title;
+  width: 50.4rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: Roboto, sans-serif;
+  line-height: 1.75rem;
+  border-bottom: 1px solid $dark-blue;
+}
+
+.main_user_settings_photo {
+  position: relative;
+  grid-area: photo;
+  width: 8.8rem;
+  height: 9rem;
+
+  .user_default_photo {
+    border-radius: 50%;
+  }
+
+  .user_icon_container {
+    position: absolute;
+    right: -0.2rem;
+
+    // todo
+    bottom: 0.8rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem auto;
+    background-color: #8de3db;
+    border-radius: 50%;
+
+    .icon_pen {
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      margin: 0.5rem auto;
+    }
+  }
+}
+
+.main_user_settings_input_name {
+  grid-area: name;
+}
+
+.main_user_settings_input_username {
+  grid-area: username;
+}
+
+.main_user_settings_location {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-area: location;
+  grid-gap: 1.5rem 1rem;
+  margin-top: 2.5rem;
+}
+
+.user-card {
+  position: relative;
+  display: flex;
+
+  // gap: 1rem;
+
+  flex-basis: 16.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: self-start;
+  padding: 1rem;
+  border: 1px solid $medium-purple;
+  border-radius: 1.25rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: $text-color;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  background: $white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.activeLink {
+  background: $cyan;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.6rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  width: 9.4rem;
+}
+
+// ------------------------------------button
+.submitButton {
+  margin: 0.75rem 0;
+
+  @include primary-button;
+}
+
+// ------------------------------skills
+.main_skill_settings {
+  // position: relative;
+
+  // display: flex;
+  // flex: start;
+
+  // margin-bottom: 5rem;
+  padding: 1rem 1.5rem 2rem;
+  overflow: hidden;
+  border: 1px solid $medium-purple;
+  border-radius: 1.25rem;
+}
+
+.submitButtonSkill {
+  float: right;
+  width: 12rem;
+  margin: 0.75rem 0;
+  padding: 0.562rem 0.718rem;
+  background: $primary-purple;
+  border: 2px solid $primary-purple;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &,
+  & * {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: transparent;
+
+    &,
+    & * {
+      color: $text-color;
+    }
+  }
+
+  &:disabled {
+    background: $gray;
+    border: 1px solid $gray;
+  }
+}
+
+.main_skill_settings_title {
+  width: 50.4rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: Roboto, sans-serif;
+  line-height: 1.75rem;
+  border-bottom: 1px solid $dark-blue;
+}
+
+.main_skill_settings_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skillsBlock {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+  min-width: 100%;
+  padding: 16px;
+  overflow-y: auto;
+  border: 1.5px solid $medium-purple;
+  border-radius: 24px;
+}
+
+.skillChip {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $cyan;
+  }
+}
